@@ -4,8 +4,11 @@ import { FaShoppingBag } from "react-icons/fa";
 import { useState } from "react";
 
 function Navbar() {
-  const [cartCount, setCartCount] = useState(10); 
+  const [cartCount, setCartCount] = useState(0); 
 
+  const incrementCartCount = () => {
+    setCartCount(cartCount + 1);
+  };
   return (
     <>
       <section>
@@ -42,6 +45,7 @@ function Navbar() {
           </header>
         </div>
       </section>
+      <button onClick={incrementCartCount}>dsadkjladskl</button>
     </>
   );
 }

@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
         <Navbar />
-        {/* <CardImg /> */}
+        <CardImg />
         <Footer />
     </>
   )
