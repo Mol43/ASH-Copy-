@@ -50,14 +50,14 @@ function CardImg() {
         </p>
 
         {inCart ? (
-          <div className="w-full flex items-center justify-between text-gray-600 bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-green-600 hover:text-white hover:border-green-600 transition">
+          <div className="w-full flex items-center justify-between text-gray-600 bg-white border border-gray-300 px-4 py-2 rounded-md transition">
             <button onClick={decrementQuantity} className="px-2 cursor-pointer">-</button>
             <span>{quantity} x {unitPrice} ₽</span>
             <button onClick={incrementQuantity} className="px-2 cursor-pointer">+</button>
           </div>
         ) : (
           <button 
-            className="w-full mt-4 text-green-600 bg-slate-100 text-sm rounded-md px-4 py-2 hover:bg-green-600 transition"
+            className="w-full text-green-600 bg-slate-100 text-sm rounded-md px-4 py-2 transition"
             onClick={() => {
               setInCart(true);
               setQuantity(1);
