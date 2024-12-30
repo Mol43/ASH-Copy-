@@ -28,7 +28,7 @@ function CardImg() {
 
   return (
     <>
-      <div className="border w-[244px] rounded-lg p-4 bg-white shadow-lg font-sans relative">
+      <div className="border w-[244px] h-[450px] rounded-lg p-4 bg-white shadow-lg font-sans relative">
         <button 
           className="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition"
           onClick={toggleLike}
