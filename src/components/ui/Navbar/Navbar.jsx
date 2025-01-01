@@ -33,18 +33,19 @@ return (
               <TiLocationArrowOutline /> Укажите адрес доставки
             </button>
 
-            <button className="relative flex items-center bg-gray-100 px-2 py-2 rounded-lg">
-              <FaShoppingBag className="text-[#3A692F] text-2xl " />
-              <span className="absolute -top-2 -right-3 bg-[#3A692F] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                {card}
-              </span>
-            </button>
-          </div>
-        </header>
-      </div>
-    </section>
-  </>
-);
+              <button className="relative flex items-center bg-gray-100 px-2 py-2 rounded-lg">
+                <FaShoppingBag className="text-[#3A692F] text-2xl " />
+                <span className="absolute -top-2 -right-3 bg-[#3A692F] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              </button>
+            </div>
+          </header>
+        </div>
+      </section>
+      <button onClick={incrementCartCount}>dsadkjladskl</button>
+    </>
+  );
 }
 
 export default Navbar;
