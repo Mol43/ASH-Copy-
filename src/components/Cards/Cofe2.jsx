@@ -2,7 +2,7 @@ import { useStore } from '@/context/AddToCard';
 import { useState, useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-function Choy() {
+function Cofe3() {
   const [isLiked, setIsLiked] = useState(false);
   const unitPrice = 360;
 
@@ -29,7 +29,7 @@ function Choy() {
 
         <div className="bg-green-600 text-white text-sm font-bold rounded-md px-2 py-1 inline-block mb-2">-20%</div>
 
-        <img src="./choy.png" alt="Cappuccino" className="w-full h-auto rounded-md mb-4" />
+        <img src="./cofe3.png" alt="Cappuccino" className="w-32 ml-10 h-auto rounded-md mb-4" />
 
         <div className="mb-2">
           <span className="text-green-600 text-lg font-bold mr-2">{totalPrice}₽</span>
@@ -59,4 +59,4 @@ function Choy() {
   );
 }
 
-export default Choy;
+export default Cofe3;

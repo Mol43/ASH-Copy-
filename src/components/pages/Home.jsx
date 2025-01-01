@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
-import Navbar from '../ui/Navbar/Navbar'
-import CardImg from '../CardImg'
-import Footer from '../ui/Footer/Footer'
-import { CiCircleInfo } from 'react-icons/ci'
-import Choy from '../Cards/Choy'
+import React, { useState } from 'react';
+import Navbar from '../ui/Navbar/Navbar';
+import CardImg from '../Cards/CardImg';
+import Footer from '../ui/Footer/Footer';
+import { CiCircleInfo } from 'react-icons/ci';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Cofe3 from '../Cards/Cofe2';
+import Choy from '../Cards/Choy';
+import Cofe2 from '../Cards/Cofe';
 
 function Home() {
   const buttons = [
@@ -77,19 +82,53 @@ function Home() {
       imgStyle: { width: '2.5rem', borderRadius: '0.375rem' },
       links: ['Link 1 for Button 10', 'Link 2 for Button 10'],
     }
-  ]
+  ];
 
-  const [activeButton, setActiveButton] = useState(null)
+  const [activeButton, setActiveButton] = useState(null);
 
   const handleButtonClick = (id) => {
-    setActiveButton(prevState => (prevState === id ? null : id))
-  }
+    setActiveButton(prevState => (prevState === id ? null : id));
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]
+  };
 
   return (
     <>
+      <style>
+        {`
+          .slick-prev:before, .slick-next:before {
+            color: black; // O'q rangini o'zgartirish
+          }
+        `}
+      </style>
       <Navbar />
-      <div className='w-full h-auto grid grid-cols-1 md:grid-cols-12 gap-3 p-4'>
-        <div className="h-auto rounded-md px-1 py-4 col-span-3 bg-[#434343]">
+      <div className='w-full h-auto grid grid-cols-1 md:grid-cols-12 gap-3 p-5'>
+        <div className="h-auto rounded-md px-1 py-4 col-span-3">
           <div className="flex items-end gap-3">
             <h1 className='text-2xl text-[#1D1E1D] font-semibold'>Каталог</h1>
             <p className='flex items-center gap-2 text-[#3A692F] font-bold'>Черкесск
@@ -126,13 +165,26 @@ function Home() {
             </div>
           ))}
         </div>
-        <div className="h-auto rounded-md px-2 py-5 col-span-9 bg-[#434343] flex gap-1 justify-center">
-          <Choy />
+        <div className="h-auto rounded-md px-2 py-5 col-span-9">
+          <Slider {...settings}>
+            <div>
+              <CardImg />
+            </div>
+            <div>
+              <Cofe3 />
+            </div>
+            <div>
+              <Choy />
+            </div>
+            <div>
+              <Cofe2 />
+            </div>
+          </Slider>
         </div>
       </div>
       <Footer />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

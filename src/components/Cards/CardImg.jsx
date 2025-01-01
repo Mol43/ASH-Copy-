@@ -2,7 +2,7 @@ import { useStore } from '@/context/AddToCard';
 import { useState, useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-function Choy() {
+function CardImg() {
   const [isLiked, setIsLiked] = useState(false);
   const unitPrice = 360;
 
@@ -10,11 +10,11 @@ function Choy() {
     setIsLiked(!isLiked);
   };
 
-  const {card, count, totalPrice, addToCart, inc, dec, updateTotalPrice } = useStore();
+  const {card, count, totalPrice, cardIncreament, inc, dec, updateTotalPrice } = useStore();
 
   useEffect(() => {
     updateTotalPrice();
-  }, [count, updateTotalPrice]);  
+  }, [count, updateTotalPrice]);
 
 
   return (
@@ -29,7 +29,7 @@ function Choy() {
 
         <div className="bg-green-600 text-white text-sm font-bold rounded-md px-2 py-1 inline-block mb-2">-20%</div>
 
-        <img src="./choy.png" alt="Cappuccino" className="w-full h-auto rounded-md mb-4" />
+        <img src="/cofe.png" alt="Cappuccino" className="w-full h-auto rounded-md mb-4" />
 
         <div className="mb-2">
           <span className="text-green-600 text-lg font-bold mr-2">{totalPrice}₽</span>
@@ -49,7 +49,7 @@ function Choy() {
         ) : (
           <button
             className="w-full text-green-600 bg-slate-100 text-sm rounded-md px-4 py-2 transition"
-            onClick={addToCart}
+            onClick={cardIncreament}
           >
             В корзину
           </button>
@@ -59,4 +59,4 @@ function Choy() {
   );
 }
 
-export default Choy;
+export default CardImg;
