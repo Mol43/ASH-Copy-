@@ -45,7 +45,7 @@ function Navbar() {
           </header>
         </div>
       </section>
-      <button onClick={incrementCartCount}>dsadkjladskl</button>
+      <button onClick={incrementCartCount}></button>
     </>
   );
 }
