@@ -64,3 +64,56 @@
     @apply bg-background text-foreground;
   }
 }
+.icon {
+  padding: 15px;
+  border-radius: 50%;
+  background-color: #E9F3E2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 
+      transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.icon:hover {
+  transform: translateY(-10px) scale(1.3) rotate(3deg); /* Havoda suzish */
+  background: radial-gradient(circle at 50% 50%, #8EF6E4, #9896F1, #D59BF6);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.icon:hover:before {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0.5;
+  filter: blur(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.icon:hover:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+  opacity: 0.7;
+  filter: blur(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.icon:hover:before, .icon:hover:after {
+  transform: translateX(-50%) translateY(20%);
+  opacity: 0;
+}

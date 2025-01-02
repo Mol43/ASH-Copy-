@@ -15,7 +15,7 @@ function Footer() {
                                 <span className='font-bold'>для Вашего стола!</span>
                             </span>
                         </div>
-                        <img src="./logo.png" alt="" />
+                        <img src="./logo.png" alt="Logo" />
                         <div className="">
                             <p className='text-[22px] text-[#3A692F]'>Разнообразие — наше все</p>
                             <div className="relative">
@@ -36,13 +36,13 @@ function Footer() {
                             <a href="#" className='text-white'>Пользовательское соглашение</a>
                             <a href="#" className='text-white'>Контакты</a>
                             <div className="flex gap-4">
-                                <a href="#" className='p-2 rounded-2xl  bg-[#E9F3E2]'>
+                                <a href="#" className='icon'>
                                     <FaInstagram />
                                 </a>
-                                <a href="#" className='p-2 rounded-2xl  bg-[#E9F3E2]'>
+                                <a href="#" className='icon'>
                                     <LiaTelegram />
                                 </a>
-                                <a href="#" className='p-2 rounded-2xl  bg-[#E9F3E2]'>
+                                <a href="#" className='icon'>
                                     <SiWhatsapp />
                                 </a>
                             </div>
@@ -54,4 +54,4 @@ function Footer() {
     )
 }
 
-export default Footer
+export default Footer;
