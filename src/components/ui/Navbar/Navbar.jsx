@@ -2,20 +2,33 @@ import { CiSearch } from "react-icons/ci";
 import { TiLocationArrowOutline } from "react-icons/ti";
 import { FaShoppingBag } from "react-icons/fa";
 import { useState } from "react";
+import Modal from 'react-modal';
+import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 import { useStore1 } from "@/context/AddToCard";
-import SinginModal from "@/components/SinginModal";
+
+const mapContainerStyle = {
+  width: "740px",
+  height: "300px",
+  border: "1px solid #ccc",
+  borderRadius: "10px",
+};
+
+const center = {
+  lat: 42.0575,
+  lng: 47.6361,
+};
 
 function Navbar() {
   const { card } = useStore1();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPosition, setSelectedPosition] = useState(null);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const handleMapClick = (e) => {
+    setSelectedPosition({ lat: e.latLng.lat(), lng: e.latLng.lng() });
   };
 
   return (
@@ -43,7 +56,6 @@ function Navbar() {
               <button onClick={openModal} className="flex items-center gap-2 rounded-xl bg-[#E9F3E2] px-5 py-2 text-[#3A692F]">
                 <TiLocationArrowOutline /> Укажите адрес доставки
               </button>
-              <SinginModal isOpen={isModalOpen} closeModal={closeModal} />
 
               <button className="relative flex items-center bg-gray-100 px-2 py-2 rounded-lg">
                 <FaShoppingBag className="text-[#3A692F] text-2xl " />
@@ -55,6 +67,35 @@ function Navbar() {
           </header>
         </div>
       </section>
+
+      <Modal isOpen={isModalOpen} onRequestClose={closeModal} className="w-[780px] mx-auto mt-24 bg-white p-6 rounded-lg shadow-md">
+        <h1 className="text-3xl font-bold mb-2">Укажите ваш адрес</h1>
+        <p className="text-gray-600 mb-4">
+          Привезем товары в день заказа. Домой или в офис.
+        </p>
+
+        <div className="flex items-center mb-4 gap-4">
+          <button className="flex items-center gap-2 rounded-xl bg-[#E9F3E2] px-36 py-2.5 text-[#3A692F] ">
+            <TiLocationArrowOutline /> Укажите адрес доставки
+          </button>
+          <button className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600">
+            Применить адрес
+          </button>
+        </div>
+
+        <div className="mb-4">
+          <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+            <GoogleMap
+              mapContainerStyle={mapContainerStyle}
+              center={center}
+              zoom={12}
+              onClick={handleMapClick}
+            >
+              {selectedPosition && <Marker position={selectedPosition} />}
+            </GoogleMap>
+          </LoadScript>
+        </div>
+      </Modal>
     </>
   );
 }

@@ -89,7 +89,7 @@ function Home() {
 
   return (
     <>
-      <SinginModal />
+    <SinginModal />
       <Navbar />
       <div className='w-full h-auto grid grid-cols-1 md:grid-cols-12 gap-3 p-5'>
         <div className="h-auto rounded-md px-1 py-4 col-span-3">
@@ -119,7 +119,7 @@ function Home() {
                 <h1 className='font-bold text-[#1D1E1D]'>{button.title}</h1>
               </button>
 
-              {activeButton === button.id && (
+{activeButton === button.id && (
                 <div className="mt-4">
                   {button.links.map((link, index) => (
                     <a href="#" key={index} className="block text-blue-600">{link}</a>
@@ -131,10 +131,8 @@ function Home() {
         </div>
         <div className="h-auto rounded-md px-2 py-5 col-span-9 flex flex-col gap-5">
           <Coffe />
-         
         </div>
       </div>
-      <GoogleMap/>
       <Footer />
 
     </>
