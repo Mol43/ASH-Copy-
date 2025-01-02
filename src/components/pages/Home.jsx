@@ -4,6 +4,7 @@ import Footer from '../ui/Footer/Footer';
 import { CiCircleInfo } from 'react-icons/ci';
 import Coffe from '../Coffe';
 import SinginModal from '../SinginModal';
+import GoogleMap from '../GoogleMap';
 
 
 function Home() {
@@ -136,7 +137,9 @@ function Home() {
           <Coffe />
         </div>
       </div>
+      <GoogleMap/>
       <Footer />
+
     </>
   );
 }

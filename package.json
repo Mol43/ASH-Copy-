@@ -1,3 +1,4 @@
+
 {
   "name": "shadcn-vite-project",
   "private": true,
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-google-maps/api": "^2.20.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "icons": "^1.0.0",
