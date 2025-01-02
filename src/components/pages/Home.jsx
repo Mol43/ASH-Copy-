@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from '../ui/Navbar/Navbar';
-import CardImg from '../Cards/CardImg';
 import Footer from '../ui/Footer/Footer';
 import { CiCircleInfo } from 'react-icons/ci';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Cofe3 from '../Cards/Cofe2';
-import Choy from '../Cards/Choy';
-import Cofe2 from '../Cards/Cofe';
+import Coffe from '../Coffe';
+import SinginModal from '../SinginModal';
+
 
 function Home() {
   const buttons = [
@@ -17,14 +13,14 @@ function Home() {
       title: 'Овощи и фрукты',
       imgSrc: './blagar.png',
       imgStyle: { width: '2.5rem', borderRadius: '0.375rem' },
-      links: ['Link 1 for Button 1', 'Link 2 for Button 1'],
+      links: ['Овощи, грибы и зелень', 'Овощи, грибы и зелень'],
     },
     {
       id: 2,
       title: 'Молочные продукты',
       imgSrc: './blagar2.png',
       imgStyle: { width: '2.5rem', borderRadius: '0.375rem' },
-      links: ['Link 1 for Button 2', 'Link 2 for Button 2'],
+      links: ['Овощи, грибы и зелень', 'Овощи, грибы и зелень'],
     },
     {
       id: 3,
@@ -38,28 +34,28 @@ function Home() {
       title: 'Бакалея',
       imgSrc: './blagar4.png',
       imgStyle: { width: '2rem', borderRadius: '0.375rem' },
-      links: ['Link 1 for Button 4', 'Link 2 for Button 4'],
+      links: ['Овощи, грибы и зелень', 'Овощи, грибы и зелень'],
     },
     {
       id: 5,
       title: 'Замороженные продукты',
       imgSrc: './blagar5.png',
       imgStyle: { width: '1.5rem', borderRadius: '0.375rem' },
-      links: ['Link 1 for Button 5', 'Link 2 for Button 5'],
+      links: ['Овощи, грибы и зелень', 'Овощи, грибы и зелень'],
     },
     {
       id: 6,
       title: 'Напитки',
       imgSrc: './blagar6.png',
       imgStyle: { width: '2.5rem', borderRadius: '0.375rem' },
-      links: ['Link 1 for Button 6', 'Link 2 for Button 6'],
+      links: ['Овощи, грибы и зелень', 'Овощи, грибы и зелень'],
     },
     {
       id: 7,
       title: 'Кондитерские изделия',
       imgSrc: './blagar7.png',
       imgStyle: { width: '2.5rem', borderRadius: '0.375rem' },
-      links: ['Link 1 for Button 7', 'Link 2 for Button 7'],
+      links: ['Овощи, грибы и зелень', 'Овощи, грибы и зелень'],
     },
     {
       id: 8,
@@ -90,42 +86,10 @@ function Home() {
     setActiveButton(prevState => (prevState === id ? null : id));
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1
-        }
-      }
-    ]
-  };
 
   return (
     <>
-      <style>
-        {`
-          .slick-prev:before, .slick-next:before {
-            color: black; // O'q rangini o'zgartirish
-          }
-        `}
-      </style>
+    <SinginModal />
       <Navbar />
       <div className='w-full h-auto grid grid-cols-1 md:grid-cols-12 gap-3 p-5'>
         <div className="h-auto rounded-md px-1 py-4 col-span-3">
@@ -146,15 +110,15 @@ function Home() {
                 onClick={() => handleButtonClick(button.id)}
               >
                 <div className="px-1 py-1 bg-white rounded-lg">
-                  <img 
-                    src={button.imgSrc} 
-                    style={button.imgStyle} 
-                    alt={button.title} 
+                  <img
+                    src={button.imgSrc}
+                    style={button.imgStyle}
+                    alt={button.title}
                   />
                 </div>
                 <h1 className='font-bold text-[#1D1E1D]'>{button.title}</h1>
               </button>
-              
+
               {activeButton === button.id && (
                 <div className="mt-4">
                   {button.links.map((link, index) => (
@@ -165,21 +129,11 @@ function Home() {
             </div>
           ))}
         </div>
-        <div className="h-auto rounded-md px-2 py-5 col-span-9">
-          <Slider {...settings}>
-            <div>
-              <CardImg />
-            </div>
-            <div>
-              <Cofe3 />
-            </div>
-            <div>
-              <Choy />
-            </div>
-            <div>
-              <Cofe2 />
-            </div>
-          </Slider>
+        <div className="h-auto rounded-md px-2 py-5 col-span-9 flex flex-col gap-5">
+          <Coffe />
+          <Coffe />
+          <Coffe />
+          <Coffe />
         </div>
       </div>
       <Footer />

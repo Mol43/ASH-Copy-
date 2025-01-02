@@ -4,7 +4,8 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 function Choy() {
   const [isLiked, setIsLiked] = useState(false);
-  const unitPrice = 360;
+  const unitPrice = 129;
+
 
   const toggleLike = () => {
     setIsLiked(!isLiked);
@@ -29,15 +30,15 @@ function Choy() {
 
         <div className="bg-green-600 text-white text-sm font-bold rounded-md px-2 py-1 inline-block mb-2">-20%</div>
 
-        <img src="./choy.png" alt="Cappuccino" className="w-full h-auto rounded-md mb-4" />
+        <img src="./choy.png" alt="Cappuccino" className="w-full h-auto rounded-md mb-7" />
 
         <div className="mb-2">
           <span className="text-green-600 text-lg font-bold mr-2">{totalPrice}₽</span>
           <span className="text-gray-500 text-sm line-through">450,99₽</span>
         </div>
 
-        <p className="text-sm text-gray-700 mb-4">
-          Растворимый кофе Капучино MacCoffee Cappuccino Di Torino, 20 пакетиков по 25,5 г.
+        <p className="text-lg text-gray-700 mb-4 ">
+        Полное название <br /> данного товара  
         </p>
 
         {card !== 0 || count > 1 ? (
