@@ -1,4 +1,4 @@
-import { useStore } from '@/context/AddToCard';
+import { useStore2 } from '@/context/AddToCard';
 import { useState, useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 

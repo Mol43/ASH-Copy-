@@ -1,4 +1,4 @@
-import { useStore } from '@/context/AddToCard';
+import { useStore3 } from '@/context/AddToCard';
 import { useState, useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
@@ -10,7 +10,7 @@ function Cofe2() {
     setIsLiked(!isLiked);
   };
 
-  const {card, count, totalPrice, addToCart, inc, dec, updateTotalPrice } = useStore();
+  const {card, count, totalPrice, addToCart, inc, dec, updateTotalPrice } = useStore3();
 
   useEffect(() => {
     updateTotalPrice();

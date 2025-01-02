@@ -4,6 +4,7 @@ import Footer from '../ui/Footer/Footer';
 import { CiCircleInfo } from 'react-icons/ci';
 import Coffe from '../Coffe';
 import SinginModal from '../SinginModal';
+import CardImg from '../Cards/CardImg';
 
 
 function Home() {
@@ -89,7 +90,7 @@ function Home() {
 
   return (
     <>
-    <SinginModal />
+      <SinginModal />
       <Navbar />
       <div className='w-full h-auto grid grid-cols-1 md:grid-cols-12 gap-3 p-5'>
         <div className="h-auto rounded-md px-1 py-4 col-span-3">
@@ -131,9 +132,7 @@ function Home() {
         </div>
         <div className="h-auto rounded-md px-2 py-5 col-span-9 flex flex-col gap-5">
           <Coffe />
-          <Coffe />
-          <Coffe />
-          <Coffe />
+         
         </div>
       </div>
       <Footer />
